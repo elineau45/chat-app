@@ -1,21 +1,33 @@
 import React from 'react';
 import './Contact.css';
 
-const name = "Meghan Martin";
-const online = false;
-const avatar = "https://randomuser.me/api/portraits/women/47.jpg";
+// function Contact(props) {
+//     return (
+//         <div className="Contact">
+//             <img className='avatar' src={props.avatar} />
+//             <div className="status">
+//                 <div className='name'>
+//                     {props.name}
+//                 </div>
+//                 <div className={props.online ? 'status-online' : 'status-offline'}>
+//                 </div>
+//                 {props.online ? 'online' : 'offline'}
+//             </div>
+//         </div>
+//     );
+// }
 
-function Contact() {
+function Contact({ contact }) {
     return (
         <div className="Contact">
-            <img className='avatar' src={avatar} />
+            <img className='avatar' src={contact.avatar} />
             <div className="status">
                 <div className='name'>
-                    {name}
+                    {contact.name}
                 </div>
-                <div className={online ? 'status-online' : 'status-offline'}>
+                <div className={contact.online ? 'status-online' : 'status-offline'}>
                 </div>
-                {online ? 'online' : 'offline'}
+                {contact.online ? 'online' : 'offline'}
             </div>
         </div>
     );

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './Contact.css';
 
 function Contact(props) {
+    const [online, setOnline] = useState(props.online)
+
     return (
         <div className="Contact">
             <img className='avatar' src={props.avatar} />
@@ -11,9 +13,10 @@ function Contact(props) {
                 <div className='name'>
                     {props.name}
                 </div>
-                <div className={props.online ? 'status-online' : 'status-offline'}>
+                <div className={online ? 'status-online' : 'status-offline'}
+                    onClick={() => { setOnline(!online) }}>
                 </div>
-                {props.online ? 'online' : 'offline'}
+                {online ? 'online' : 'offline'}
             </div>
         </div>
     );
